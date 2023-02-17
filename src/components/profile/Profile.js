@@ -1,4 +1,8 @@
 import PropTypes from 'prop-types';
+import { DescriptionContainer, DescriptionText, Label, ProfileCard, Quantity, Statistics, StatisticsItems, UserDescription, UserName } from './Profile.styled';
+import { Avatar } from './Profile.styled'
+import { GoLocation } from "react-icons/go";
+import { HiOutlineHashtag } from "react-icons/hi";
 
 export const Profile = ({
   username,
@@ -8,29 +12,35 @@ export const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="{username}" className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+    <ProfileCard>
+      <UserDescription>
+        <Avatar src={avatar} alt="{username}" className="avatar" />
+        <UserName>{username}</UserName>
+        <DescriptionContainer>
+          <HiOutlineHashtag/>
+          <DescriptionText>{tag}</DescriptionText>
+        </DescriptionContainer>
+        <DescriptionContainer>
+          <GoLocation/>
+        <DescriptionText>{location}</DescriptionText>
+        </DescriptionContainer>
+      </UserDescription>
 
-      <ul className="stats">
-        <li>
-          <span className="label">Followers</span>
-          <span className="quantity">{followers}</span>
-        </li>
-        <li>
-          <span className="label">Views</span>
-          <span className="quantity">{views}</span>
-        </li>
-        <li>
-          <span className="label">Likes</span>
-          <span className="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+      <Statistics>
+        <StatisticsItems>
+          <Label>Followers</Label>
+          <Quantity>{followers}</Quantity>
+        </StatisticsItems>
+        <StatisticsItems>
+          <Label>Views</Label>
+          <Quantity>{views}</Quantity>
+      </StatisticsItems>
+        <StatisticsItems>
+          <Label>Likes</Label>
+          <Quantity>{likes}</Quantity>
+      </StatisticsItems>
+      </Statistics>
+    </ProfileCard>
   );
 };
 

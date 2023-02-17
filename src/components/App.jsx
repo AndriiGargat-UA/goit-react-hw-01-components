@@ -1,24 +1,19 @@
 import { Profile } from "./profile/Profile";
-import user from '../components/profile/user.json';
+import user from 'components/profile/user.json';
 import { Statistics } from "./statistics/Statistics";
-import data from '../components/statistics/data.json';
-import friends from '../components/friendlist/friends.json';
+import data from 'components/statistics/data.json';
+import friends from 'components/friendlist/friends.json';
 import { FriendList } from "./friendlist/FriendList";
-import transactions from '../components/transaction/transactions.json';
+import transactions from 'components/transaction/transactions.json';
 import { TransactionHistory } from "./transaction/TransactionHistory";
+import { GlobalStyle } from "./GlobalStyle";
+import { Layout } from "./Layout";
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
+    <Layout>
+      <GlobalStyle/>
+
       <Profile
         username={user.username}
         tag={user.tag}
@@ -36,6 +31,6 @@ export const App = () => {
       <FriendList friends={friends} /> 
       
       <TransactionHistory items={transactions} />
-    </div>
+    </Layout>
   );
 };
