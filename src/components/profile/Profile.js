@@ -1,8 +1,18 @@
 import PropTypes from 'prop-types';
-import { DescriptionContainer, DescriptionText, Label, ProfileCard, Quantity, Statistics, StatisticsItems, UserDescription, UserName } from './Profile.styled';
-import { Avatar } from './Profile.styled'
-import { GoLocation } from "react-icons/go";
-import { HiOutlineHashtag } from "react-icons/hi";
+import {
+  Avatar,
+  DescriptionContainer,
+  DescriptionText,
+  Label,
+  ProfileCard,
+  Quantity,
+  Statistics,
+  StatisticsItems,
+  UserDescription,
+  UserName,
+} from './Profile.styled';
+import { GoLocation } from 'react-icons/go';
+import { HiOutlineHashtag } from 'react-icons/hi';
 
 export const Profile = ({
   username,
@@ -17,12 +27,12 @@ export const Profile = ({
         <Avatar src={avatar} alt="{username}" className="avatar" />
         <UserName>{username}</UserName>
         <DescriptionContainer>
-          <HiOutlineHashtag/>
+          <HiOutlineHashtag />
           <DescriptionText>{tag}</DescriptionText>
         </DescriptionContainer>
         <DescriptionContainer>
-          <GoLocation/>
-        <DescriptionText>{location}</DescriptionText>
+          <GoLocation />
+          <DescriptionText>{location}</DescriptionText>
         </DescriptionContainer>
       </UserDescription>
 
@@ -34,11 +44,11 @@ export const Profile = ({
         <StatisticsItems>
           <Label>Views</Label>
           <Quantity>{views}</Quantity>
-      </StatisticsItems>
+        </StatisticsItems>
         <StatisticsItems>
           <Label>Likes</Label>
           <Quantity>{likes}</Quantity>
-      </StatisticsItems>
+        </StatisticsItems>
       </Statistics>
     </ProfileCard>
   );

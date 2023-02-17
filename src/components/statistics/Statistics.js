@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
+import { StatisticsContainer, StatisticsItem, StatisticsList, StatisticsTitle, StatLabel, StatQuantity } from './Statistics.style';
 
 export const Statistics = ({ title, stats }) => {
   return (
-    <section className="statistics">  
-      {Boolean(title) && <h2 className="title">{title}</h2>}
-      <ul className="stat-list">
+    <StatisticsContainer> 
+      {Boolean(title) && <StatisticsTitle>{title}</StatisticsTitle>}
+      <StatisticsList>
         {stats.map(({ id, label, percentage }) => {
           return (
-            <li className="item" key={id}>
-                  <span className="label">{label}</span>
-                  <span className="percentage">{percentage}%</span>
-            </li>
+            <StatisticsItem key={id} style={{
+              backgroundColor: `${getRandomHexColor()}`
+            }}>
+              <StatLabel>{label}</StatLabel>
+              <StatQuantity>{percentage}%</StatQuantity>
+            </StatisticsItem>
           );
         })}
-      </ul>
-    </section>
+      </StatisticsList>
+    </StatisticsContainer> 
   );
 };
 
@@ -26,3 +29,9 @@ Statistics.propTypes = {
     percentage: PropTypes.number.isRequired,
   })).isRequired,
 };
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}60`;
+}

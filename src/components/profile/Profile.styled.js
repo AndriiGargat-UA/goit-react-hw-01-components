@@ -21,8 +21,8 @@ export const DescriptionContainer = styled.div`
     margin-bottom: 8px;
     svg {
         margin-right: 5px;
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
 `
 
@@ -54,15 +54,14 @@ export const Statistics = styled.ul`
 export const StatisticsItems = styled.li`
     display: flex;
     flex-direction: column;
-
 `;
 
 export const Label = styled.span`
-    font-size: 25px;
+    font-size: 20px;
 `;
 
 export const Quantity = styled.span`
-    font-size: 20px;
+    font-size: 18px;
 `;
 
 
