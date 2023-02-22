@@ -4,7 +4,7 @@ import { StatisticsContainer, StatisticsItem, StatisticsList, StatisticsTitle, S
 export const Statistics = ({ title, stats }) => {
   return (
     <StatisticsContainer> 
-      {Boolean(title) && <StatisticsTitle>{title}</StatisticsTitle>}
+      {title && <StatisticsTitle>{title}</StatisticsTitle>}
       <StatisticsList>
         {stats.map(({ id, label, percentage }) => {
           return (
@@ -27,7 +27,7 @@ Statistics.propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     percentage: PropTypes.number.isRequired,
-  })).isRequired,
+  }).isRequired).isRequired,
 };
 
 function getRandomHexColor() {
